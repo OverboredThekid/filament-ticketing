@@ -52,7 +52,7 @@ class TicketResource extends Resource implements HasShieldPermissions
             'recorder',
             'delete',
             'delete_any',
-            'force_delete'
+            'force_delete',
             'force_delete_any',
             'manageAllTickets',
             'manageAssignedTickets',
