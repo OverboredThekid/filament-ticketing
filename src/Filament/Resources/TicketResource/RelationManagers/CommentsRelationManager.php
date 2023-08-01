@@ -66,7 +66,7 @@ class CommentsRelationManager extends RelationManager
                             config('filament-ticketing.use_authorization') == false ||
                             $ticket->user_id == $user->id ||
                             $ticket->assigned_to_id == $user->id ||
-                            $user->can('manageAllTickets', Ticket::class),
+                            $user->can('manageAllTickets_ticket', Ticket::class),
                             403
                         );
                         $comment = Comment::create([
