@@ -16,8 +16,10 @@ use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Sgcomptech\FilamentTicketing\Filament\Resources\TicketResource\RelationManagers\CommentsRelationManager;
 use Sgcomptech\FilamentTicketing\Models\Ticket;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 
-class TicketResource extends Resource
+
+class TicketResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = Ticket::class;
 
@@ -36,6 +38,26 @@ class TicketResource extends Resource
     protected static function getNavigationSort(): ?int
     {
         return config('filament-ticketing.navigation.sort');
+    }
+
+        public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'restore',
+            'restore_any',
+            'recorder',
+            'delete',
+            'delete_any',
+            'force_delete'
+            'force_delete_any',
+            'manageAllTickets',
+            'manageAssignedTickets',
+            'assignTickets',
+        ];
     }
 
     public static function form(Form $form): Form
