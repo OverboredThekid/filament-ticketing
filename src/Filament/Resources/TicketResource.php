@@ -64,9 +64,9 @@ class TicketResource extends Resource implements HasShieldPermissions
     {
         $user = auth()->user();
         if (config('filament-ticketing.use_authorization')) {
-            $cannotManageAllTickets = $user->cannot('manageAllTickets', Ticket::class);
-            $cannotManageAssignedTickets = $user->cannot('manageAssignedTickets', Ticket::class);
-            $cannotAssignTickets = $user->cannot('assignTickets', Ticket::class);
+            $cannotManageAllTickets = $user->cannot('manageAllTickets_ticket');
+            $cannotManageAssignedTickets = $user->cannot('manageAssignedTickets_ticket', Ticket::class);
+            $cannotAssignTickets = $user->cannot('assignTickets_ticket', Ticket::class);
         } else {
             $cannotManageAllTickets = false;
             $cannotManageAssignedTickets = false;
@@ -138,8 +138,8 @@ class TicketResource extends Resource implements HasShieldPermissions
     {
         $user = auth()->user();
         if (config('filament-ticketing.use_authorization')) {
-            $canManageAllTickets = $user->can('manageAllTickets', Ticket::class);
-            $canManageAssignedTickets = $user->can('manageAssignedTickets', Ticket::class);
+            $canManageAllTickets = $user->can('manageAllTickets_ticket', Ticket::class);
+            $canManageAssignedTickets = $user->can('manageAssignedTickets_ticket', Ticket::class);
         } else {
             $canManageAllTickets = true;
             $canManageAssignedTickets = true;
