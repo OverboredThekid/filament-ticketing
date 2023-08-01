@@ -124,7 +124,7 @@ class TicketResource extends Resource implements HasShieldPermissions
                             return config('filament-ticketing.user-model')::where('name', 'like', "%{$search}%")
                                 ->limit(50)
                                 ->get()
-                                ->filter(fn ($user) => $user->can('manageAssignedTickets', Ticket::class))
+                                ->filter(fn ($user) => $user->can('manageAssignedTickets_ticket'))
                                 ->pluck('name', 'id');
                         })
                         ->getOptionLabelUsing(fn ($value): ?string => config('filament-ticketing.user-model')::find($value)?->name)
