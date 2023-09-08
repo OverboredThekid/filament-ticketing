@@ -2,7 +2,7 @@
 
 namespace Sgcomptech\FilamentTicketing;
 
-use Filament\PackageServiceProvider;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentTicketingServiceProvider extends PackageServiceProvider
